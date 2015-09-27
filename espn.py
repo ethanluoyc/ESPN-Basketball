@@ -121,7 +121,7 @@ def _league_time(league):
     Return league specific game info -- number of quarters, regulation time
     limit, regular quarter length.
     """
-    if league is 'nba':
+    if league == 'nba':
         num_quarters = 4
         regulation_time = 48
         regular_quarter = 12
@@ -185,6 +185,7 @@ def parse_plays(game_id, league='nba'):
     """Parse a game's Play-By-Play page on ESPN."""
     league = league.lower()
     espn = 'http://scores.espn.go.com/' + league + '/playbyplay?' +\
+    espn = 'http://scores.espn.go.com/' + league + '/playbyplay?gameId=' +\
             game_id + '&period=0'
     url = urllib2.urlopen(espn)
     print url.geturl()
